@@ -15,6 +15,9 @@
       <excludeFolder url="file://$MODULE_DIR$/lesson8_gesture/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/lesson8_gesture/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/lesson8_gesture/build" />
+      <excludeFolder url="file://$MODULE_DIR$/lesson10_statefulwidget/build" />
+      <excludeFolder url="file://$MODULE_DIR$/lesson10_statefulwidget/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/lesson10_statefulwidget/.dart_tool" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

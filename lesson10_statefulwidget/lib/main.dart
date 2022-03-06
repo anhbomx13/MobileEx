@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
+  final items = Planet.getPlanetBoxs();
   final iconList = Container(
       padding: const EdgeInsets.all(2),
       child: Row(
@@ -35,33 +36,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final planetList = [
-      {
-        'name':'Sun',
-        'description':'The Sun is the star at the center of the Solar System.',
-        'radius':'696.340 km',
-        'image':'sun.jpg',
-      },
-      {
-        'name':'Earth',
-        'description':'Our home planet Earth is a rocky, terrestrial planet.',
-        'radius':'6.371 km',
-        'image':'earth.png',
-      },
-      {
-        'name':'Mars',
-        'description':'Mars is sometimes called the Red Planet.',
-        'radius':'3.389,5 km',
-        'image':'mars.jpg',
-      },
-      {
-        'name':'Venus',
-        'description':'Venus is the second planet from the Sun.',
-        'radius':'6.051,8 km',
-        'image':'venus.jpg',
-      },
-    ];
-
     void _showDialog(BuildContext context) {
       // user defined function void _showDialog(BuildContext context) {
       // flutter defined function
@@ -92,25 +66,31 @@ class MyHomePage extends StatelessWidget {
       body: Column(
         children: [
         Expanded(
-            child: ListView(
+            child: ListView.builder(
                 shrinkWrap: true, padding: const EdgeInsets.all(2),
-                children: List.generate(planetList.length, (index) {
-
-                  return
-                    GestureDetector(
-                      onTap: () { _showDialog(context);},
-                      child: PlanetBox(
-                          name: planetList[index]['name']!,
-                          description : planetList[index]['description']!,
-                          image: planetList[index]['image']!,
-                          radius: planetList[index]['radius']!,
-                        )
-                      );
-                    })
-                    
-                      ,
-                    ),
-                ),
+                itemCount: items.length,
+                itemBuilder: (context, index) {
+                  return PlanetBox(item: items[index]);
+                },
+            )
+        ),
+              // children: List.generate(planetList.length, (index) {
+              //
+              //     return
+              //       GestureDetector(
+              //         onTap: () { _showDialog(context);},
+              //         child: Planet(
+              //             name: planetList[index]['name']!,
+              //             description : planetList[index]['description']!,
+              //             image: planetList[index]['image']!,
+              //             radius: planetList[index]['radius']!,
+              //           )
+              //         );
+              //       })
+              //
+              //         ,
+              //       ),
+              //   ),
         Container(
                 child: iconList,
                 )
