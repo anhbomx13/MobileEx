@@ -110,15 +110,15 @@ class Planet extends Model {
         '24.622 km',
         0,
         'Dark, cold, and whipped by supersonic winds, ice giant Neptune'
-            ' is the eighth and most distant planet in our solar system.\n'
-            'More than 30 times as far from the Sun as Earth, Neptune '
-            'is the only planet in our solar system not visible to the'
-            ' naked eye and the first predicted by mathematics before'
-            ' its discovery. In 2011 Neptune completed its first 165-year'
-            ' orbit since its discovery in 1846.\n'
-            'NASA\'s Voyager 2 is the only spacecraft to have visited'
-            ' Neptune up close. It flew past in 1989 on its way out of'
-            ' the solar system.'));
+        ' is the eighth and most distant planet in our solar system.\n'
+        'More than 30 times as far from the Sun as Earth, Neptune '
+        'is the only planet in our solar system not visible to the'
+        ' naked eye and the first predicted by mathematics before'
+        ' its discovery. In 2011 Neptune completed its first 165-year'
+        ' orbit since its discovery in 1846.\n'
+        'NASA\'s Voyager 2 is the only spacecraft to have visited'
+        ' Neptune up close. It flew past in 1989 on its way out of'
+        ' the solar system.'));
     return items;
   }
 }
@@ -171,8 +171,6 @@ class PlanetBox extends StatelessWidget{
                     backgroundImage: AssetImage("assets/planet_image/" + item.image),
                   ),
               ),
-              // Image.asset("assets/planet_image/" + item.image,fit: BoxFit.fill,
-              //   height: size.height * 0.2, width: size.width * 0.3,),
               Expanded(
                 child: Container(
                     padding: EdgeInsets.all(5),

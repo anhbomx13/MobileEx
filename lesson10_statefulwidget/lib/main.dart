@@ -82,8 +82,22 @@ class MyHomePage extends StatelessWidget {
                     return  GestureDetector(
                       child: PlanetBox(item: items[index]),
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => PlanetPage(item: items[index])
+                        Navigator.push(context, PageRouteBuilder(
+                            transitionDuration: Duration(milliseconds: 300),
+                            transitionsBuilder: (context,
+                            Animation<double> animation,
+                            Animation<double> animation2, Widget child){
+                              return ScaleTransition(
+                                alignment: Alignment.topLeft,
+                                scale: animation,
+                                child: child,
+                              );
+                            }, pageBuilder: (BuildContext context,
+                            Animation<double> animation,
+                            Animation<double> secondaryAnimation)
+                            {
+                              return PlanetPage(item: items[index]);
+                            },
                           ),
                         );
                       },
