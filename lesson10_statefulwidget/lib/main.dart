@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './planetBox.dart';
+import './planetpage.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -70,27 +71,18 @@ class MyHomePage extends StatelessWidget {
                 shrinkWrap: true, padding: const EdgeInsets.all(2),
                 itemCount: items.length,
                 itemBuilder: (context, index) {
-                  return PlanetBox(item: items[index]);
+                  return  GestureDetector(
+                    child: PlanetBox(item: items[index]),
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => PlanetPage(item: items[index])
+                        ),
+                      );
+                    },
+                  );
                 },
             )
         ),
-              // children: List.generate(planetList.length, (index) {
-              //
-              //     return
-              //       GestureDetector(
-              //         onTap: () { _showDialog(context);},
-              //         child: Planet(
-              //             name: planetList[index]['name']!,
-              //             description : planetList[index]['description']!,
-              //             image: planetList[index]['image']!,
-              //             radius: planetList[index]['radius']!,
-              //           )
-              //         );
-              //       })
-              //
-              //         ,
-              //       ),
-              //   ),
         Container(
                 child: iconList,
                 )
