@@ -27,10 +27,10 @@ class MyHomePage extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: const <Widget> [
-          Icon(Icons.book),
-          Icon(Icons.star_border),
-          Icon(Icons.quiz_outlined),
-          Icon(Icons.queue_outlined),
+          Icon(Icons.book, color: Colors.white70,),
+          Icon(Icons.star_border, color: Colors.white70),
+          Icon(Icons.quiz_outlined, color: Colors.white70),
+          Icon(Icons.queue_outlined, color: Colors.white70),
         ],
       )
   );
@@ -64,30 +64,39 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(this.title),
       ),
-      body: Column(
-        children: [
-        Expanded(
-            child: ListView.builder(
-                shrinkWrap: true, padding: const EdgeInsets.all(2),
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  return  GestureDetector(
-                    child: PlanetBox(item: items[index]),
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => PlanetPage(item: items[index])
-                        ),
-                      );
-                    },
-                  );
-                },
-            )
+      body:
+      Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/planet_image/homeBg.jpg"),
+            fit: BoxFit.cover,
+          )
         ),
-        Container(
-                child: iconList,
-                )
-              ],
+        child :Column(
+          children: [
+          Expanded(
+              child: ListView.builder(
+                  shrinkWrap: true, padding: const EdgeInsets.all(2),
+                  itemCount: items.length,
+                  itemBuilder: (context, index) {
+                    return  GestureDetector(
+                      child: PlanetBox(item: items[index]),
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(
+                            builder: (context) => PlanetPage(item: items[index])
+                          ),
+                        );
+                      },
+                    );
+                  },
+              )
           ),
+          Container(
+                  child: iconList,
+                  )
+                ],
+            ),
+      ),
     );
   }
 }
