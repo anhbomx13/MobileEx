@@ -23,8 +23,17 @@ class PlanetPage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: Colors.blue,
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: (){
+            Navigator.of(context).pop();
+          },
+          icon: Icon(Icons.arrow_back_ios),
+        ),
         title: Text(item.name),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
 
       body:
@@ -36,24 +45,41 @@ class PlanetPage extends StatelessWidget {
               image: AssetImage("assets/planet_image/pageBg.jpeg"),
               fit: BoxFit.fill,
             ),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(40.0),
+                  topRight: Radius.circular(40.0),
+              )
           ),
           child: ListView(
             shrinkWrap: true,
             padding: const EdgeInsets.all(2),
             children: [
-              SizedBox(
-                height: size.height * 0.4,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    boxShadow: [BoxShadow(blurRadius: 10, color: Colors.redAccent, spreadRadius: 5)],
+              Stack(
+                children: [
+                  Container(
+                    height: size.height*0.4,
+                    width: size.width,
+                    color: Colors.transparent,
                   ),
-                  child: CircleAvatar(
-                    radius: 100,
-                    backgroundImage: AssetImage("assets/planet_image/" + item.image),
+                  Positioned(
+                    top: -size.height * 0.05,
+                    left: size.width * 0.2,
+                    child: SizedBox(
+                        height: size.height * 0.5,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                            boxShadow: [BoxShadow(blurRadius: 10, color: Colors.redAccent, spreadRadius: 5)],
+                          ),
+                          child: CircleAvatar(
+                            radius: 100,
+                            backgroundImage: AssetImage("assets/planet_image/" + item.image),
+                          ),
+                        )
+                    ),
                   ),
-                )
+                ],
               ),
               Expanded(
                   child: Container(

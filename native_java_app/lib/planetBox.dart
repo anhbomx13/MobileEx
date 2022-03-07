@@ -150,11 +150,11 @@ class PlanetBox extends StatelessWidget{
 
     return Container(
         padding: EdgeInsets.all(2),
-        height: size.height * 0.2,
+        height: size.height * 0.23,
         child: Card(
             color: Colors.black54,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15), // if you need this
+              borderRadius: BorderRadius.circular(15),
               side: BorderSide(
                 color: Colors.redAccent.withOpacity(0.2),
                 width: 2,

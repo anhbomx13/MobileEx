@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Planet and star',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -22,92 +23,96 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
   final items = Planet.getPlanetBoxs();
-  final iconList = Container(
-      padding: const EdgeInsets.all(2),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: const <Widget> [
-          Icon(Icons.book, color: Colors.white70,),
-          Icon(Icons.star_border, color: Colors.white70),
-          Icon(Icons.quiz_outlined, color: Colors.white70),
-          Icon(Icons.queue_outlined, color: Colors.white70),
-        ],
-      )
-  );
 
   @override
   Widget build(BuildContext context) {
-    void _showDialog(BuildContext context) {
-      // user defined function void _showDialog(BuildContext context) {
-      // flutter defined function
-      showDialog(
-        context: context, builder: (BuildContext context) {
-        // return object of type Dialog
-        return AlertDialog(
-          title: const Text("Message"),
-          content: const Text("Clicked"),
-          actions: <Widget>[
-            TextButton(
-              child: const Text("Close"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-      );
-    }
-
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(this.title),
-      ),
+      backgroundColor: Color(0xff6600ff),
       body:
       Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/planet_image/homeBg.jpg"),
-            fit: BoxFit.cover,
-          )
-        ),
         child :Column(
           children: [
-          Expanded(
-              child: ListView.builder(
-                  shrinkWrap: true, padding: const EdgeInsets.all(2),
-                  itemCount: items.length,
-                  itemBuilder: (context, index) {
-                    return  GestureDetector(
-                      child: PlanetBox(item: items[index]),
-                      onTap: () {
-                        Navigator.push(context, PageRouteBuilder(
-                            transitionDuration: Duration(milliseconds: 300),
-                            transitionsBuilder: (context,
-                            Animation<double> animation,
-                            Animation<double> animation2, Widget child){
-                              return ScaleTransition(
-                                alignment: Alignment.topLeft,
-                                scale: animation,
-                                child: child,
-                              );
-                            }, pageBuilder: (BuildContext context,
-                            Animation<double> animation,
-                            Animation<double> secondaryAnimation)
+            Padding(
+                padding: EdgeInsets.only(left: 40.0),
+              child: Row(
+                children: [
+                  Text('Planet',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25.0,
+                    ),
+                  ),
+                  SizedBox(width: 10.0),
+                  Text('and',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      color: Colors.white,
+                      fontSize: 25.0,
+                    ),
+                  ),
+                  SizedBox(width: 10.0),
+                  Text('Star',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25.0,
+                    ),
+                  ),
+                  SizedBox(width: 70),
+                  IconButton(onPressed: (){},
+                      icon: Icon(Icons.menu),
+                      color: Colors.white),
+                  SizedBox(height: 100,),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.only(right: 20.0, top: 20.0),
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("assets/planet_image/homeBg.jpg"),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.only(topRight: Radius.circular(75.0))
+                ),
+                child: Expanded(
+                    child: ListView.builder(
+                      shrinkWrap: true, padding: const EdgeInsets.all(2),
+                      itemCount: items.length,
+                      itemBuilder: (context, index) {
+                        return  GestureDetector(
+                          child: PlanetBox(item: items[index]),
+                          onTap: () {
+                            Navigator.push(context, PageRouteBuilder(
+                              transitionDuration: Duration(milliseconds: 300),
+                              transitionsBuilder: (context,
+                                  Animation<double> animation,
+                                  Animation<double> animation2, Widget child){
+                                return ScaleTransition(
+                                  alignment: Alignment.topLeft,
+                                  scale: animation,
+                                  child: child,
+                                );
+                              }, pageBuilder: (BuildContext context,
+                                Animation<double> animation,
+                                Animation<double> secondaryAnimation)
                             {
                               return PlanetPage(item: items[index]);
                             },
-                          ),
+                            ),
+                            );
+                          },
                         );
                       },
-                    );
-                  },
-              )
-          ),
-          Container(
-                  child: iconList,
-                  )
+                    )
+                ),
+              ),
+            ),
                 ],
             ),
       ),
