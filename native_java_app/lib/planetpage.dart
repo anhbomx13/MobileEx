@@ -10,7 +10,7 @@ class PlanetPage extends StatelessWidget {
   Future<void> _openBrowser() async {
     try {
       final int result = await platform.invokeMethod('openBrowser', <String, String>{
-        'url': "https://flutter.dev"
+        'url': "https://en.wikipedia.org/wiki/" + item.name
       });
     }
     on PlatformException catch (e) {

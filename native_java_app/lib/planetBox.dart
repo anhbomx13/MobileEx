@@ -34,7 +34,7 @@ class Planet extends Model {
   static List<Planet> getPlanetBoxs() {
     List<Planet> items = <Planet> [];
 
-    items.add(Planet('The Sun',
+    items.add(Planet('Sun',
         'The Sun is the star at the center of the Solar System.',
         'sun.jpg',
         '696.340 km',
@@ -52,7 +52,7 @@ class Planet extends Model {
         'The Sun’s activity, from its powerful eruptions to the steady '
         'stream of charged particles it sends out, influences the nature '
         'of space throughout the solar system.'));
-    items.add(Planet('The Earth',
+    items.add(Planet('Earth',
         'Our home planet Earth is a rocky, terrestrial planet.',
         'earth.gif',
         '6.371 km',
