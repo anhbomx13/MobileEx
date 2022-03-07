@@ -94,7 +94,7 @@ class MyHomePage extends StatelessWidget {
                                   Animation<double> animation,
                                   Animation<double> animation2, Widget child){
                                 return ScaleTransition(
-                                  alignment: Alignment.topLeft,
+                                  alignment: Alignment.center,
                                   scale: animation,
                                   child: child,
                                 );
