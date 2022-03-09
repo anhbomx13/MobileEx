@@ -21,6 +21,15 @@
       <excludeFolder url="file://$MODULE_DIR$/native_java_app/build" />
       <excludeFolder url="file://$MODULE_DIR$/native_java_app/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/native_java_app/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin_test/lesson16/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin_test/lesson16/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin_test/lesson16/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin_test/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin_test/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin_test/build" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin_test/lesson16/build" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin_test/lesson16/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/plugin_test/lesson16/.dart_tool" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
